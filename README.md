@@ -1,3 +1,3 @@
 # EEG_Projects
 
-This is a test
+This repository is for all my projects on EEG frequency analysis. 
