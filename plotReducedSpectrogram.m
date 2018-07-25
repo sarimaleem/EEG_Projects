@@ -1,4 +1,4 @@
-function plotReducedSpectrogram(spikeMag, nyquistLimit)
+function plotReducedSpectrogram(spikeMag, nyquistLimit, plot)
 
 %this function just plots the the frequency of each wave below 100 hertz
 
@@ -6,6 +6,7 @@ ratio = nyquistLimit/size(spikeMag, 1);
 gammarow = round(100/ratio);
 reducedSpikeMag = spikeMag(1:gammarow, :);
 
+if plot == 1
 figure
 spectroheat = heatmap(flipud(reducedSpikeMag));
 spectroheat.GridVisible = 'off';
@@ -18,8 +19,7 @@ for ii = 1:gammarow
 spectroheatlabels(ii) = ratio*ii;
 end
 
-spectroheat.YData = flip(spectroheatlabels);
+spectroheat.YDisplayData = flip(spectroheatlabels);
 movegui('north');
-
 end
-
+end
